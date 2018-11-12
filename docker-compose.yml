@@ -3,11 +3,12 @@ services:
   proxy:
     image: osminogin/tor-simple
     ports:
-     - 9100:9100
+      - 9100:9100
     links:
-     - crawler
+      - crawler
 
   crawler:
-    depends_on: proxy
     build: .
-    
+    depends_on:
+      - proxy
+
