@@ -8,5 +8,6 @@ services:
      - crawler
 
   crawler:
+    depends_on: proxy
     build: .
     
