@@ -12,7 +12,7 @@ services:
       - PYTHONUNBUFFERED=0
 
     links:
-      - tor
+      - proxy
 
 networks:
   mynet:
