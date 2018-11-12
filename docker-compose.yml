@@ -1,9 +1,12 @@
 version: '3'
 services:
-  crawler:
-    build: "."
-    
   proxy:
     image: osminogin/tor-simple
     ports:
      - 9100:9100
+    links:
+     - crawler
+
+  crawler:
+    build: .
+    
