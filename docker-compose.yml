@@ -1,18 +1,20 @@
 version: '3'
 services:
   proxy:
-    image: osminogin/tor-simple
-    ports:
-      - 9050:9050
-    networks:
-      - mynet
+    build:
+      context: ./tor
+        args:
+          password: "foo"
 
   crawler:
     build: .
-    depends_on:
-      - proxy
-    networks:
-      - mynet
+    environment:
+      - http_proxy=http://proxy:9050
+      - https_proxy=http://proxy:9050
+      - PYTHONUNBUFFERED=0
+
+    links:
+      - tor
 
 networks:
   mynet:
