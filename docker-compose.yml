@@ -4,6 +4,6 @@ services:
     build: "."
     
   proxy:
-    build: "./tor"
+    image: osminogin/tor-simple
     ports:
-     - "9100:9100"
+     - 9100:9100
