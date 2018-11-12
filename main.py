@@ -1,6 +1,8 @@
 import os
 
 import requests
+import time
+time.sleep(10)
 
 session = requests.session()
 session.proxies = {}
