@@ -1,0 +1,9 @@
+version: '3'
+services:
+  crawler:
+    build: "."
+    
+  proxy:
+    build: "./tor"
+    ports:
+     - "9100:9100"
