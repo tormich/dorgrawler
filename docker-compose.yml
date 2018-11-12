@@ -3,12 +3,16 @@ services:
   proxy:
     image: osminogin/tor-simple
     ports:
-      - 9100:9100
-    links:
-      - crawler
+      - 9050:9050
+    networks:
+      - mynet
 
   crawler:
     build: .
     depends_on:
       - proxy
+    networks:
+      - mynet
 
+networks:
+  mynet:
